@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"  />
+    <title>my-project</title>
+    <!-- <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel=stylesheet href=https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css>
+    <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script type=text/javascript src=https://res.wx.qq.com/open/libs/weuijs/1.1.1/weui.min.js></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script src="./static/js/jquery-2.1.1.js"></script>
+    <script src="./static/js/flexible.js"></script>
+    <script src="./static/js/jquery.myProgress.js"></script>
+    <script>
+    window.onload=function () {  
+
+document.addEventListener('touchstart',function (event) {  
+
+if(event.touches.length>1){  
+
+event.preventDefault();  
+
+}  
+
+})  
+
+var lastTouchEnd=0;  
+
+document.addEventListener('touchend',function (event) {  
+
+var now=(new Date()).getTime();  
+
+if(now-lastTouchEnd<=30){  
+
+event.preventDefault();  
+
+}  
+
+lastTouchEnd=now;  
+
+},false)  
+
+} 
+    </script>
+  </body>
+</html>
