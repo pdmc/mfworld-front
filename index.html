@@ -3,19 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"  />
-    <title>my-project</title>
+    <title>IONTRUM</title>
+    <!--<link rel="stylesheet" href="./static/css/weui.css" />-->
     <!-- <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel=stylesheet href=https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css>
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <link rel="stylesheet" href="./static/css/nativeShare.css" />
+   
+    
     <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <script type=text/javascript src=https://res.wx.qq.com/open/libs/weuijs/1.1.1/weui.min.js></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>
+    
+    
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script src="./static/js/jquery-2.1.1.js"></script>
+     <script src="./static/js/ui.js"></script>
     <script src="./static/js/flexible.js"></script>
     <script src="./static/js/jquery.myProgress.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script>
     window.onload=function () {  
 
@@ -48,4 +58,19 @@ lastTouchEnd=now;
 } 
     </script>
   </body>
+  <style scoped="">
+      .weui-toast__content{
+      	display: none;
+      }
+			.weui-toast{
+				background: none;
+				min-height:0;
+			}
+/*			#app .tab{
+				
+		    position: fixed;
+		    top: 0px;
+		    z-index: 1000;
+					}*/
+  </style>
 </html>
