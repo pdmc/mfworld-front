@@ -43,7 +43,7 @@ export default {
    methods: {
     back:function(){
 //          window.history.go(-1);
-			 that.$router.push('/index');
+			 this.$router.push('/index');
         },
     onem:function(){
     		var that = this;

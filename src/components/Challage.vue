@@ -292,7 +292,7 @@ export default {
                	
 //      		开始倒计时				
                 that.timer2 = setInterval(()=>{                	
-                	console.log("========点击事件定时器=======")
+                	console.log("========点击事件定时器========")
                 	that.timer3 = that.timer2               
                	    that.codemessage--;	
                	    if(that.codemessage == 0){
@@ -315,60 +315,96 @@ export default {
 							that.answer = res;
 							  }); 	
 							
-							  if(that.num<10){
+							  if(that.num<11){
 							  	
 								that.$Post('/correct',{user_id:that.userInfo.user_id, num:that.num,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
 								function(data){ 													
 						 }); 
 							  }
 							  
-							  if(that.num == 10){
+							  
+							                  							  if(that.num == 10){
 				
-      	    	if(that.success == 1){
-      	    		      		
+      	    	
+      	    		   		
       	    		setTimeout(()=>{
       	    			that.$Post('/correct',{user_id:that.userInfo.user_id, num:10,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
 								function(data){ 	
 									window.sessionStorage.setItem("setPhysical",data.data.physical);
+									that.success = data.data.success;
+									
+									clearInterval(that.timer)
+				      	    		clearInterval(that.timer2)
+				      	    		clearInterval(that.timer3)
+				      	    		clearInterval(that.a)
+				      	    		window.sessionStorage.removeItem("num")
+				   	  				window.sessionStorage.removeItem("num2")
+				   	  				window.sessionStorage.removeItem("number")
+				   	  				if(that.success == 1){
+				   	  					
+				   	  					that.$router.push('/ChallageSuccess')
+				   	  				}else{
+				   	  					
+				   	  					that.$router.push('/ChallageFailure')
+				   	  				}
+				   	  				
+				   	  				
 						 }); 
-						clearInterval(that.timer)     	    		
-      	    		    clearInterval(that.a)  
-      	    			clearInterval(that.timer2)
-      	    			clearInterval(that.timer3)
-      	    			that.$router.push('/ChallageSuccess')
+						
       	    		},9000)			  		
-      	    }else{	
-      	    		setTimeout(()=>{  
-      	    			
-      	    			that.$Post('/correct',{user_id:that.userInfo.user_id, num:10,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
-								function(data){ 
-									window.sessionStorage.setItem("setPhysical",data.data.physical);
-						 }); 
-                        clearInterval(that.timer)      	    		
-      	    		    clearInterval(that.a)   
-      	    			clearInterval(that.timer2)
-      	    			clearInterval(that.timer3)
-      	    			that.$router.push('/ChallageFailure')
-      	    		},9000)
-
-      	    	}			  	
+      	    
+      	    		  	
 			  }
-			
 							  
 
+										  
                	                 }     
 //             	                 		10s倒计时
 			
 
 //			10s倒计时
                 },1000);
-				if(that.num>10){
+                
+                if(that.num == 10){
+				
+      	    		   		
+      	    		setTimeout(()=>{
+      	    			that.$Post('/correct',{user_id:that.userInfo.user_id, num:10,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
+								function(data){ 	
+									window.sessionStorage.setItem("setPhysical",data.data.physical);
+									that.success = data.data.success;
+									
+									clearInterval(that.timer)
+				      	    		clearInterval(that.timer2)
+				      	    		clearInterval(that.timer3)
+				      	    		clearInterval(that.a)
+				      	    		window.sessionStorage.removeItem("num")
+				   	  				window.sessionStorage.removeItem("num2")
+				   	  				window.sessionStorage.removeItem("number")
+				   	  				if(that.success == 1){
+				   	  					
+				   	  					that.$router.push('/ChallageSuccess')
+				   	  				}else{
+				   	  					
+				   	  					that.$router.push('/ChallageFailure')
+				   	  				}
+				   	  				
+				   	  				
+						 }); 
+						
+      	    		},9000)			  		
+      	    
+      	    		  	
+			  }
+                
+                
+/*				if(that.num>10){
   	    			clearInterval(that.timer)
   	    			clearInterval(that.a)
   	    			clearInterval(that.timer2)
   	    			clearInterval(that.timer3)
 //										
-											}
+											}*/
 //                停止1s开始倒计时  
                },1000)
          	});
