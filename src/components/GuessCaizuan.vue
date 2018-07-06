@@ -1,4 +1,4 @@
- <template>
+k8 <template>
   
     <div class="middle-index">
       <!--<img src="../../static/img/indexBG.jpg" alt="">-->
@@ -84,8 +84,8 @@
                             <p style="background:#BBBBBB;" v-else>下注</p>
                         </div> 
                     </div>
-                    <div class="code" v-bind:class="{active:index==mycode}">
-                        <p>您的积分不足</p>
+                    <div class="code" v-bind:class="{active:index==mycode}" >
+                        <p>已达最大下注彩钻</p>
                         <!-- <p @click="sure()">确定</p> -->
                     </div>
                     <div class="xzhuSuccess" v-bind:class="{active:index==myxzhu}">
@@ -585,6 +585,7 @@ export default {
                that.sureXiazhu=2;
                return  false;
            }else{
+              that.sureXiazhu=1;
               that.size+=0.1;
               that.size=Number(that.size.toFixed(1));
            }
@@ -593,6 +594,7 @@ export default {
         if(this.size<=0.1){
             return false;
         }else{
+        	  this.sureXiazhu=1;
               this.size-=0.1;
               this.size=Number(this.size.toFixed(1));
         }
@@ -965,10 +967,11 @@ ul li{
     left: 50%;
     transform: translate(-50%);
     background: #ffffff;
-    height: 1.5rem;
-    width: 3.5rem;
-    line-height: 1.5rem;
+    height: 1.3rem;
+    width: 4rem;
+    line-height: 1.3rem;
     border-radius: 0.3rem;
+    border: 0.013rem solid deepskyblue;
 }
 .code>p{
     font-size: 0.44rem;
