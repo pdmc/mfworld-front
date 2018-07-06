@@ -314,20 +314,25 @@ export default {
 							}
 							that.answer = res;
 							  }); 	
-							
-							  if(that.num<11){
+							 
+							  if(that.num-1<10){
 							  	
-								that.$Post('/correct',{user_id:that.userInfo.user_id, num:that.num,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
-								function(data){ 													
+								that.$Post('/correct',{user_id:that.userInfo.user_id, num:that.num-1,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
+								function(data){ 
+									
 						 }); 
 							  }
 							  
 							  
-							                  							  if(that.num == 10){
-				
-      	    	
+						if(that.num-1 == 10){
+				       /*     alert("执行的里面的num=10")
+      	    				that.$Post('/correct',{user_id:that.userInfo.user_id, num:9,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
+								function(data){
+									alert("执行的第10个里面的")
+								})*/
+								
       	    		   		
-      	    		setTimeout(()=>{
+//    	    		setTimeout(()=>{
       	    			that.$Post('/correct',{user_id:that.userInfo.user_id, num:10,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
 								function(data){ 	
 									window.sessionStorage.setItem("setPhysical",data.data.physical);
@@ -350,8 +355,8 @@ export default {
 				   	  				
 				   	  				
 						 }); 
-						
-      	    		},9000)			  		
+						that.num = 10
+//    	    		},0)			  		
       	    
       	    		  	
 			  }
@@ -365,8 +370,13 @@ export default {
 //			10s倒计时
                 },1000);
                 
-                if(that.num == 10){
+               /* if(that.num == 10){
 				
+      	    		  alert("执行的外边的num===10")
+      	    		  that.$Post('/correct',{user_id:that.userInfo.user_id, num:10,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
+								function(data){
+									alert("执行的第10个外外外面的")
+								})
       	    		   		
       	    		setTimeout(()=>{
       	    			that.$Post('/correct',{user_id:that.userInfo.user_id, num:10,id:that.id,user_nick:that.userInfo.user_nick,time:0,correct:""}, 
@@ -395,7 +405,7 @@ export default {
       	    		},9000)			  		
       	    
       	    		  	
-			  }
+			  }*/
                 
                 
 /*				if(that.num>10){
