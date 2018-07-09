@@ -264,7 +264,7 @@ export default {
       if(that.userInfo){
       	that.userInfo = JSON.parse(userInfo);
       	that.user_id = that.userInfo.user_id;
-      	that.$store.state.color = that.userInfo.color;     	     	      		
+//    	that.$store.state.color = that.userInfo.color;     	     	      		
       		that.$store.state.ucolor = that.userInfo.ucolor;
       		that.$store.state.energy = parseInt(that.userInfo.energy);
       		if(newEnergy){
@@ -303,7 +303,14 @@ export default {
 		   $("#water").css("backgroundPositionY",-that.perce+"px")
       	   window.sessionStorage.setItem("newColor",data.data.color);
       	   window.sessionStorage.setItem("newEnergy",data.data.energy);  
-      	         	   
+      	   var newColor = window.sessionStorage.getItem("newColor");
+           var newEnergy= window.sessionStorage.getItem("newEnergy");
+      	   if(newEnergy){
+      			that.$store.state.energy = newEnergy
+      		}
+      		if(newColor){      			
+      			that.$store.state.ucolor = newColor
+      		}
       	      
       	   
       	   
