@@ -27,12 +27,20 @@
                  <img src="../../static/img/neng.png" alt="" @click="energy1()">
                  <span>能量&nbsp;{{$store.state.energy || 0}}</span>
              </li>
+
              <div stylel="margin-left:5rem" class="logo" @click="my_account()">
                      <img src="../../static/img/logo.jpg" alt="">
                      <img src="../../static/img/man.png" alt="" v-if="type==1">
                      <img src="../../static/img/girl.png" alt="" v-else>
              </div>
          </ul>
+
+          <div class="search-box">
+            <div class="form-group">
+                 <input type="text" class="form-control" v-model="searchText" placeholder="搜索" @keyup.enter="exec_search">
+                 <span class="right" @click="exec_search"><img src="../../static/img/zoom-icon.png"></span>
+            </div>
+          </div>
 
          <div class="center clearfix">
 			<div id="water" style="width:2.77rem;height:2.77rem;background-position-y:0px;" class="box_center">
@@ -193,6 +201,8 @@ console.log(this)*/
 export default {
     data () {
         return {
+          searchText: "",
+
            userInfo:"",
            type:"",
            user_id:"",
@@ -360,7 +370,15 @@ export default {
       	      
       })    
     },
-    methods: {      	
+    methods: {
+    exec_search: function(){
+      let that = this, data = {'searchText': that.searchText};
+      
+      if(that.searchText){
+        console.log(that.searchText)
+        that.$router.push({name: 'SearchFrame', query: data});
+      }
+    },     	
       getColor:function(){     	  
       	 var that = this; 
       	 var val = $("#pColor").html()
@@ -664,6 +682,10 @@ export default {
 </script>
 
 <style scoped>
+.search-box{text-align: center;padding-bottom: 0.4em;}
+.search-box input{width: 80%;height: 3.3em;line-height: 3.3em;border-radius: 1.3em;border:1px solid #ccc;text-indent: 0.9em;}
+.search-box .right{vertical-align: bottom !important;width: 1em;display: inline-block;margin-left: -1.5em;text-align: center;}
+.search-box .right img{width: 0.9em;}
 .disabled{
 	pointer-events:none; 
 }
@@ -852,7 +874,7 @@ ul li{
 .center{
 	width:5.55rem;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
