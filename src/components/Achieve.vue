@@ -97,7 +97,7 @@ export default {
 	  	 		that.win = data.data.win; 
 	  	 		that.task = data.data.task;
 	  	 		that.task.forEach((tmp)=>{
-	  	 			if(tmp.iswin == 1 && tmp.winnum ==tmp.num){ 	 				
+	  	 			if(tmp.iswin == 1){ 	 				
 	  	 				var id = tmp.id;
 	  	 				setTimeout(()=>{
 	  	 					$("#a"+id).children().css("color","#BBB");

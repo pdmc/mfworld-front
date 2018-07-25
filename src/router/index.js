@@ -28,7 +28,6 @@ import PaySuccess from "@/components/PaySuccess"
 import PayFailure from "@/components/PayFailure"
 import IndexOld from "@/components/IndexOld"
 import MyGuess from "@/components/MyGuess"
-import SearchFrame from "@/components/SearchFrame"
 
 Vue.use(Router)
 
@@ -49,15 +48,6 @@ export default new Router({
       component:Login,
       meta: {
           title: "登录"
-      }
-
-  },
-  {
-      path: '/SearchFrame',
-      name: 'SearchFrame',
-      component:SearchFrame,
-      meta: {
-          title: "搜索"
       }
 
   },

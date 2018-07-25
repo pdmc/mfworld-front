@@ -79,7 +79,7 @@ export default {
                 that.invite_code = data.data.invite_code;
                 
                 that.$store.commit("setCode",data.data.invite_num);
-                that.invite_url = "http://iontrum.pk4yo.com/register?"+data.data.invite_code;
+                that.invite_url = "https://iontrum.pk4yo.com/register?"+data.data.invite_code;
                 
 			 }
 		})
