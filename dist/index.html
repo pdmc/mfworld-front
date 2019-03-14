@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>IONTRUM</title><link rel=stylesheet href=https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css><link rel=stylesheet href=./static/css/style.css><script type=text/javascript src=https://res.wx.qq.com/open/libs/weuijs/1.1.1/weui.min.js></script><script scr=https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js></script><link href=/static/css/app.6a1fa39f079f200990e27a2180e927bc.css rel=stylesheet></head><body><div id=app></div><script src=./static/js/jquery-2.1.1.js></script><script src=./static/js/ui.js></script><script src=./static/js/flexible.js></script><script src=./static/js/jquery.myProgress.js></script><script src=https://res.wx.qq.com/open/js/jweixin-1.2.0.js></script><script>window.onload=function () {  
+
+document.addEventListener('touchstart',function (event) {  
+
+if(event.touches.length>1){  
+
+event.preventDefault();  
+
+}  
+
+})  
+
+var lastTouchEnd=0;  
+
+document.addEventListener('touchend',function (event) {  
+
+var now=(new Date()).getTime();  
+
+if(now-lastTouchEnd<=30){  
+
+event.preventDefault();  
+
+}  
+
+lastTouchEnd=now;  
+
+},false)  
+
+}</script><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.bb38c09531229dd67a9f.js></script><script type=text/javascript src=/static/js/app.bf9beceeacbc38a75617.js></script></body><style scoped="">.weui-toast__content{
+      	display: none;
+      }
+			.weui-toast{
+				background: none;
+				min-height:0;
+			}
+/*			#app .tab{
+				
+		    position: fixed;
+		    top: 0px;
+		    z-index: 1000;
+					}*/</style></html>
